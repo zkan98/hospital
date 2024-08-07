@@ -1,4 +1,4 @@
-package com.example.hospitalbackend.hospital.repository;// HospitalRepository.java
+package com.example.hospitalbackend.hospital.repository;
 
 import com.example.hospitalbackend.hospital.entity.Hospital;
 import org.springframework.data.jpa.repository.JpaRepository;

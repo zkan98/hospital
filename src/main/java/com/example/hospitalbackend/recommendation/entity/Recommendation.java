@@ -19,10 +19,14 @@ public class Recommendation {
     private Hospital hospital;
 
     @Column(nullable = false)
-    private double score;  // 추천 점수
+    private double score;
 
     @Column(nullable = false)
-    private String disease;  // 질병 종류
+    private String disease;
 
-    // 추가 필드 필요시 여기에 추가
+    @Column(nullable = false)
+    private double latitude;
+
+    @Column(nullable = false)
+    private double longitude;
 }

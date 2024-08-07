@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface RecommendationRepository extends JpaRepository<Recommendation, Long> {
+
     List<Recommendation> findByDiseaseAndLatitudeBetweenAndLongitudeBetween(
-        String disease, double minLat, double maxLat, double minLon, double maxLon);
+        String disease, double latStart, double latEnd, double lonStart, double lonEnd);
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/recommendations")
@@ -29,8 +30,13 @@ public class RecommendationController {
     public ResponseEntity<Recommendation> addRecommendation(@RequestParam Long hospitalId,
         @RequestParam double score,
         @RequestParam String disease) {
-        Hospital hospital = hospitalService.getHospitalById(hospitalId);
-        Recommendation recommendation = recommendationService.addRecommendation(hospital, score, disease);
-        return ResponseEntity.ok(recommendation);
+        Optional<Hospital> hospitalOpt = hospitalService.getHospitalById(hospitalId);
+        if (hospitalOpt.isPresent()) {
+            Hospital hospital = hospitalOpt.get();
+            Recommendation recommendation = recommendationService.addRecommendation(hospital, score, disease);
+            return ResponseEntity.ok(recommendation);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

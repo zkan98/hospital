@@ -6,7 +6,6 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
@@ -27,9 +26,6 @@ public class Hospital {
 
     @Column(nullable = false)
     private double longitude;
-
-    @Column(nullable = true)
-    private double rating;
 
     @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
     private List<Review> reviews;

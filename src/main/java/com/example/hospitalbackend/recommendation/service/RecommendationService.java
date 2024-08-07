@@ -30,6 +30,8 @@ public class RecommendationService {
         recommendation.setHospital(hospital);
         recommendation.setScore(score);
         recommendation.setDisease(disease);
+        recommendation.setLatitude(hospital.getLatitude());
+        recommendation.setLongitude(hospital.getLongitude());
         return recommendationRepository.save(recommendation);
     }
 }
